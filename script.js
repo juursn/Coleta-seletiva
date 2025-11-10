@@ -124,7 +124,18 @@ function switchMode(mode) {
 
 async function initWebcam() {
     const flip = true;
-    webcam = new tmImage.Webcam(300, 300, flip);
+    const width = 300;
+    const height = 300;
+
+    // --- NOVO CÓDIGO AQUI: CONFIGURAÇÃO DE DISPOSITIVO ---
+
+    // O objeto de configuração `webcamSettings` instrui o navegador.
+    // O parâmetro 'environment' (ambiente) indica a câmera traseira.
+    const webcamSettings = {
+        facingMode: 'environment'
+    };
+
+    webcam = new tmImage.Webcam(width, height, flip, webcamSettings); // Passando a nova configuração
 
     try {
         await webcam.setup();
@@ -133,9 +144,17 @@ async function initWebcam() {
         window.requestAnimationFrame(loop);
         labelContainer.innerHTML = "Câmera iniciada. Aponte o objeto.";
     } catch (e) {
-        labelContainer.innerHTML = "ERRO: Webcam bloqueada ou não encontrada.";
-        console.error(e);
-        webcamModeDiv.style.display = 'none';
+        // Se o navegador não encontrar a câmera traseira (em PCs sem ela, por exemplo), 
+        // ele voltará para a câmera frontal, se disponível.
+        console.error("Erro ao iniciar a câmera traseira. Tentando a câmera padrão.", e);
+
+        // Tenta iniciar a câmera padrão (que geralmente é a frontal em PCs) como fallback
+        webcam = new tmImage.Webcam(width, height, flip);
+        await webcam.setup();
+        await webcam.play();
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        window.requestAnimationFrame(loop);
+        labelContainer.innerHTML = "Câmera frontal usada (padrão).";
     }
 }
 
