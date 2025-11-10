@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header h1 {
+    color: #007f45;
+    /* Verde Sustentável */
+    font-weight: 800;
+}
+
+header p {
+    font-style: italic;
+    color: #555;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0));
+    margin: 30px 0;
+}
+
+/* --- Seleção de Modo --- */
+#mode-selector button {
+    padding: 12px 25px;
+    margin: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #3f51b5;
+    /* Azul */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px #2c3e8e;
+    transition: background-color 0.1s, transform 0.1s;
+}
+
+#mode-selector button:active {
+    box-shadow: 0 1px #2c3e8e;
+    transform: translateY(3px);
+}
+
+/* --- Containers de Modo --- */
+.mode-container {
+    margin: 20px auto;
+}
+
+/* Estilo da Webcam e Imagem */
+#webcam-container,
+#image-container {
+    margin: 20px auto;
+    border: 4px solid #00a65a;
+    /* Borda Verde */
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+#uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- Botões de Controle (Pausar/Classificar) --- */
+.control-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #ff6347;
+    /* Laranja de Ação */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 3px #cc4f38;
+}
+
+.control-button:active {
+    box-shadow: 0 0 #cc4f38;
+    transform: translateY(2px);
+}
+
+.control-button:disabled {
+    background-color: #cccccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+
+/* --- Área de Resultado --- */
+.result-display {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.4em;
+    font-weight: 600;
+    min-height: 80px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Lixo: Classificador Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🤖 AI-Lixo: Classificador Inteligente de Resíduos</h1>
+        <p>Inovação Sustentável: Classifique o lixo e aprenda o descarte correto.</p>
+    </header>
+
+    <div id="mode-selector">
+        <button id="mode-webcam">Modo Câmera 🎥</button>
+        <button id="mode-upload">Modo Upload 🖼️</button>
+    </div>
+
+    <hr>
+
+    <div id="webcam-mode" class="mode-container" style="display:none;">
+        <div id="webcam-container"></div>
+        <button id="pauseButton" class="control-button">⏸️ Pausar</button>
+    </div>
+
+    <div id="upload-mode" class="mode-container" style="display:none;">
+        <input type="file" id="file-upload" accept="image/*">
+        <button id="classify-button" class="control-button" disabled>Classificar Imagem</button>
+        <div id="image-container">
+            <img id="uploaded-image" src="" alt="Imagem Carregada">
+        </div>
+    </div>
+
+    <div id="label-container" class="result-display">Modelo carregando...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
