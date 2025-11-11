@@ -1,5 +1,5 @@
 // O LINK DO SEU MODELO:
-const URL = "https://teachablemachine.withgoogle.com/models/-RXno36Vr/";
+const URL = "https://teachablemachine.withgoogle.com/models/-3-2Ngyl-/";
 
 // MAPA DE DESCARTE (Configure esta seção com os nomes exatos das suas classes!)
 const DISPOSAL_MAP = {
